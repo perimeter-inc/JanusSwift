@@ -8,7 +8,11 @@ struct APIClient: APIClientProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let task = URLSession.shared.dataTask(with: route.asURLRequest(baseUrl: baseUrl)) { data, _, _ in
             do {
-                let response = try decoder.decode(T.self, from: data!)
+                guard let data = data else {
+                    completion(.failure(.error("no data")))
+                    return
+                }
+                let response = try decoder.decode(T.self, from: data)
                 completion(.success(response))
             } catch {
                 let jsonResponse = String(decoding: data!, as: UTF8.self)

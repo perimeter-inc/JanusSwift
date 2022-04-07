@@ -1,7 +1,7 @@
 import Foundation
 
 struct WatchResponse: Decodable {
-    let janus = "ack"
+    var janus = "ack"
     let sessionId: Int
     let transaction: String
 }
