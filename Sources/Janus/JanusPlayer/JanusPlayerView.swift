@@ -7,8 +7,6 @@
 
 import Foundation
 import SwiftUI
-import LegacyVideoPlayer
-
 import WebRTC
 
 public struct JanusPlayerView<Loader: View>: UIViewRepresentable {

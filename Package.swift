@@ -13,7 +13,6 @@ let package = Package(
             targets: ["Janus"]
         ),
     ],
-    dependencies: [ ],
     targets: [
         .target(
             name: "Janus",
